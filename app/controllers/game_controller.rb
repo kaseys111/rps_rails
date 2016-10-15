@@ -14,7 +14,16 @@ class GameController < ApplicationController
 
     @computer_move = ['rock', 'paper','scissors'].sample
 
-    @result = "Replace this string with the correct value."
+
+    if @user_move == @computer_move
+      @result = 'tie with the computer'
+
+    elsif (@user_move == 'paper' && @computer_move == 'rock') || (@user_move == 'rock' && @computer_move == 'scissors') || (@user_move == 'scissors' &&   @computer_move == 'paper')
+      @result = 'win'
+
+    else
+      @result = 'lose'
+    end
 
     # ===============================================================
     # Your code goes above.
